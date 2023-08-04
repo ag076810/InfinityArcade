@@ -29,6 +29,7 @@ TAGLINE: <%- game.tagline %>
 * Present only one set of 4 options per response; never include more than one set.
 * Do not include anything after the options.
 * Avoid phrases like "What do you want to do?" when presenting options.
+* 請記住以繁體中文回答.
 
 # EXAMPLE FORMAT
 ```
@@ -45,4 +46,4 @@ Please follow these instructions carefully to generate responses with the desire
 
 [[messages]]
 role = "user"
-content = """Start Game, remeber keep it short and output the options properly"""
+content = """Start Game, remeber keep it short and output the options properly,請記住以繁體中文回答"""
