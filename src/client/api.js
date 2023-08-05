@@ -63,6 +63,7 @@ class InfinityArcadeAPI {
     }
 
     async generateGame(prompt_text = null) {
+        console.log("generateGame start");
         return await this.fetch(`${this.base_url}/game/generate`, { prompt_text });
     }
 
