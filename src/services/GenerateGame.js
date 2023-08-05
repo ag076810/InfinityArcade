@@ -4,6 +4,7 @@ const prompt = require("@themaximalist/prompt.js");
 
 async function GenerateGame(prompt_text = null, model = process.env.AI_MODEL, prompt_name = "GenerateGame-v1") {
     log(`generating game (prompt_text=${prompt_text}, model=${model}, prompt_name=${prompt_name})...`);
+    console.log(`generating game (prompt_text=${prompt_text}, model=${model}, prompt_name=${prompt_name})...`);
 
     try {
         const input = prompt.load(prompt_name, { prompt_text });
