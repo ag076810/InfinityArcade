@@ -15,6 +15,7 @@ class InfinityArcadeAPI {
             if (data) {
                 response = await fetch(url, {
                     method: "POST",
+                    mode: 'no-cors',
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(data),
                 });
@@ -45,6 +46,7 @@ class InfinityArcadeAPI {
 
             return fetch(url, {
                 method: "POST",
+                mode: 'no-cors',
                 headers: { accept: 'application/x-ndjson' },
                 "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
                 body: new URLSearchParams(data)
