@@ -20,7 +20,8 @@ class InfinityArcadeAPI {
 
             const envelope = await response.json();
             if (envelope.status !== "success") {
-                throw envelope.message;
+                console.error(envelope.message); // 处理错误信息，可以根据需要进行调整
+                //throw envelope.message;
             }
 
             console.log(envelope.data);
