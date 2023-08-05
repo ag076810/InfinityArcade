@@ -3,7 +3,7 @@ class InfinityArcadeAPI {
         if (document.location.href.indexOf("http://localhost:3000") == 0) {
             this.base_url = "http://localhost:3000/api";
         }else {
-            this.base_url = "https://aistory-5a6a.onrender.com/api";
+            this.base_url = "https://infinityarcade.com/api";
         }
     }
 
@@ -26,6 +26,8 @@ class InfinityArcadeAPI {
             if (envelope.status !== "success") {
                 throw envelope.message;
             }
+
+            console.log(envelope.data);
 
             return envelope.data;
         } catch (error) {
