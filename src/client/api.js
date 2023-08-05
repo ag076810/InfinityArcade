@@ -2,9 +2,7 @@ class InfinityArcadeAPI {
     constructor() {
         if (document.location.href.indexOf("http://localhost:3000") == 0) {
             this.base_url = "http://localhost:3000/api";
-        } else if (document.location.href.indexOf("http://223.136.191.91:3000") == 0) {
-            this.base_url = "http://223.136.191.91:3000/api";1
-        } else {
+        }else {
             this.base_url = "https://aistory-5a6a.onrender.com/api";
         }
     }
