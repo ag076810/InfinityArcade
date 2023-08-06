@@ -1,6 +1,6 @@
 class InfinityArcadeAPI {
     constructor() {
-        this.base_url = "https://aistory-5a6a.onrender.com/api";
+        this.base_url = "https://6b0c-36-231-13-124.ngrok-free.app/api";
     }
 
     async fetch(url, data = null) {
