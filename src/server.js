@@ -73,7 +73,7 @@ class Server {
     }
 
     start() {
-        const PORT = process.env.PORT || 10000;
+        const PORT = process.env.PORT || 3000;
         this.app.listen(PORT, () => {
             log(`Server is running on port ${PORT}`);
         });
