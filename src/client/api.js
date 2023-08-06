@@ -1,6 +1,6 @@
 class InfinityArcadeAPI {
     constructor() {
-        this.base_url = "http://localhost:3000/api";
+        this.base_url = "https://infinityarcade.com/api";
     }
 
     async fetch(url, data = null) {
