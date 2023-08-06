@@ -30,14 +30,6 @@ class Server {
         this.app.set("view engine", "ejs");
         this.app.set("views", "src/views");
         this.setupHandlers();
-
-        // 添加跨域配置中间件
-        this.app.use((req, res, next) => {
-            res.setHeader('Access-Control-Allow-Origin', '*');
-            res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-            res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-            next();
-        });
     }
 
     setupBufferHandlers() {
