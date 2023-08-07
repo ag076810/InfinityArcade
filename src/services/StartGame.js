@@ -1,6 +1,6 @@
 const log = require("debug")("ia:services:StartGame");
 
-const prompt = require("@themaximalist/prompt.js");
+const prompt = require("@ag076810/prompt.js");
 const Chat = require("../models/chat");
 const ChatGame = require("./ChatGame");
 
