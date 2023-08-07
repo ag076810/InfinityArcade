@@ -7,7 +7,7 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const { join } = require("path");
 
-const prompt = require("@themaximalist/prompt.js");
+const prompt = require("@ag076810/prompt.js");
 const Database = require("./database");
 const controllers = require("./controllers");
 const { verify_user, optional_user, verify_admin, check_mobile } = require("./middleware");
