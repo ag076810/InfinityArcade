@@ -2,8 +2,8 @@ const log = require("debug")("ia:services:ChatGame");
 
 const Chat = require("../models/chat");
 const GetChat = require("./GetChat");
-const prompt = require("@ag076810/prompt.js")
-const AI = require("@ag076810/ai.js");
+const prompt = require("@themaximalist/prompt.js")
+const AI = require("@themaximalist/ai.js");
 const parseTokenStream = require("./parseTokenStream");
 
 async function* ChatGame(chat_id, content, user_id, model = process.env.AI_MODEL, prompt_name = "ChatGame-v1") {
