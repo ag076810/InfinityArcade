@@ -23,7 +23,7 @@ RUN npm ci --only=development
 COPY . .
 
 # Build application
-RUN npm run build:js && npm run build:css
+RUN npm install
 
 # Remove development dependencies
 RUN npm prune
