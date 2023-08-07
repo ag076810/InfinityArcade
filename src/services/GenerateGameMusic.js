@@ -1,6 +1,6 @@
 const log = require("debug")("ia:services:GenerateGameMusic");
-const AI = require("@themaximalist/ai.js");
-const prompt = require("@themaximalist/prompt.js");
+const AI = require("@ag076810/ai.js");
+const prompt = require("@ag076810/prompt.js");
 const { shuffle } = require("../utils");
 
 const SEED_IMAGES = ["og_beat", "agile", "marim", "motorway", "vibes"];
