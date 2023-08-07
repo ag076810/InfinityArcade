@@ -30,7 +30,7 @@ COPY . .
 
 # Build application
 # Changed the commands "npm run build:js" and "npm run build:css" to "npm run build" to build the application correctly
-RUN npm run build:js && npm run build:css
+RUN npm run build
 
 # Remove development dependencies
 # Removed "--omit=dev" flag from npm prune command since it is not a valid option
