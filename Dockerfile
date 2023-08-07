@@ -23,7 +23,7 @@ RUN npm ci --only=development
 COPY . .
 
 # Build application
-RUN npm run build
+RUN npm run build:js && npm run build:css
 
 # Remove development dependencies
 RUN npm prune
@@ -31,7 +31,7 @@ RUN npm prune
 # Final stage for app image
 FROM node
 
-# Copy built application
+# Copy built application from the build stage to the final stage
 COPY --from=build /app /app
 
 # Start the server by default, this can be overwritten at runtime
