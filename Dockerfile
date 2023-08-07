@@ -17,4 +17,4 @@ RUN npm run build
 EXPOSE 3000
 
 # Define the entry point for the container
-RUN npm run build
+RUN npm run server
