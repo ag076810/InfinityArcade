@@ -1,6 +1,6 @@
 const log = require("debug")("ia:services:GenerateGameArt");
-const AI = require("@themaximalist/ai.js");
-const prompt = require("@themaximalist/prompt.js");
+const AI = require("@ag076810/ai.js");
+const prompt = require("@ag076810/prompt.js");
 
 async function GenerateGameArt(game,
     concept_model = process.env.AI_MODEL,
