@@ -30,11 +30,12 @@ async function create(req, res) {
 }
 
 async function generate(req, res) {
-    consoloe.log('generate');
+    console.log('generate');
     try {
         let { prompt_text } = req.body;
         if (utils.isURL(prompt_text)) {
             const url = prompt_text;
+            console.log('url');
             const text = await scrape(prompt_text);
             if (text) {
                 prompt_text = `The following game idea details have been scraped from ${url}, please generate a game appropriate for this story: ${text}`;
@@ -42,7 +43,7 @@ async function generate(req, res) {
                 prompt_text = `Extract any useful game details out of what content you think is at this URL ${url} and generate a game appropriate for the story.`;
             }
         }
-
+        console.log('model');
         let model = (req.user ? req.user.model : process.env.AI_MODEL);
 
         const game = await GenerateGame(prompt_text, model);
