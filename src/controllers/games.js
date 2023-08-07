@@ -30,6 +30,7 @@ async function create(req, res) {
 }
 
 async function generate(req, res) {
+    consoloe.log('generate');
     try {
         let { prompt_text } = req.body;
         if (utils.isURL(prompt_text)) {
