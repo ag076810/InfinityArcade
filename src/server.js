@@ -15,6 +15,7 @@ const { verify_user, optional_user, verify_admin, check_mobile } = require("./mi
 class Server {
     constructor() {
         if (!process.env.COOKIE_SECRET) throw new Error("COOKIE_SECRET not set");
+        console.log(process.env.COOKIE_SECRET);
         this.app = express();
 
         this.setupBufferHandlers();
