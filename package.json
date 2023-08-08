@@ -21,8 +21,8 @@
     "author": "The Maximalist",
     "license": "MIT",
     "dependencies": {
-        "@themaximalist/ai.js": "^0.0.8",
-        "@themaximalist/prompt.js": "^0.0.3",
+        "@themaximalist/ai": "^0.0.8",
+        "@themaximalist/prompt": "^0.0.3",
         "bcrypt": "^5.1.0",
         "body-parser": "^1.20.2",
         "cookie-parser": "^1.4.6",
@@ -46,6 +46,7 @@
     "devDependencies": {
         "@babel/core": "^7.21.4",
         "@babel/preset-env": "^7.21.4",
+        "@flydotio/dockerfile": "^0.4.2",
         "rollup": "^2.79.1",
         "rollup-plugin-babel": "^4.4.0",
         "rollup-plugin-commonjs": "^10.1.0",
