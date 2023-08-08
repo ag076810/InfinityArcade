@@ -1,13 +1,12 @@
 class InfinityArcadeAPI {
     constructor() {
-        this.base_url = "https://aistory-5a6a.onrender.com/api";
-    }
+        this.base_url = "https://3781cbc2.cpolar.io/api";
+    }	
 
     async fetch(url, data = null) {
         console.log(`fetching ${url}...`);
         try {
             let response;
-
             if (data) {
                 response = await fetch(url, {
                     method: "POST",
@@ -20,7 +19,6 @@ class InfinityArcadeAPI {
 
             const envelope = await response.json();
             if (envelope.status !== "success") {
-                //console.error(envelope.message); // 处理错误信息，可以根据需要进行调整
                 throw envelope.message;
             }
 
