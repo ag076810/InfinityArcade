@@ -10,7 +10,8 @@ const { join } = require("path");
 const prompt = require("@themaximalist/prompt.js");
 const Database = require("./database");
 const controllers = require("./controllers");
-const { verify_user, optional_user, verify_admin, check_mobile } = require("./middleware");
+//const { verify_user, optional_user, verify_admin, check_mobile } = require("./middleware");
+const { verify_user, optional_user, check_mobile } = require("./middleware");
 
 class Server {
     constructor() {
@@ -58,7 +59,9 @@ class Server {
         this.app.get("/account", verify_user, controllers.users.account);
         this.app.get("/pro", controllers.pro.index);
 
-        this.app.get("/admin", verify_user, verify_admin, controllers.admin.index);
+        //this.app.get("/admin", verify_user, verify_admin, controllers.admin.index);
+
+        this.app.get("/admin", verify_user, controllers.admin.index);
 
         this.app.get("/privacy", optional_user, controllers.site.privacy);
         this.app.get("/games", optional_user, controllers.games.games_index);

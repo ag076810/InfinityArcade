@@ -119,17 +119,8 @@ async function account(req, res) {
 async function signup(req, res) {
     try {
         const { session_id } = req.query;
+        console.log('signup');
 
-        if (!session_id) {
-            return res.render("signup");  
-        };
-
-        return res.render("signup", {
-            session_id,
-            title: "Signup",
-            description: "Signup to Infinity Arcade",
-        });
-        /*
         if (!session_id) {
             return res.render("signup");
         
@@ -148,8 +139,7 @@ async function signup(req, res) {
             title: "Signup",
             description: "Signup to Infinity Arcade",
         });
-        */
-
+    }
     } catch (e) {
         return res.render("signup", {
             error: e.message,
@@ -160,11 +150,9 @@ async function signup(req, res) {
 async function handle_signup(req, res) {
     try {
         
-        //const { email, password, session_id, order_id } = req.body;
-        //if (!email || !password || !session_id || !order_id) throw new Error("Missing required fields");
-        const { email, password, session_id } = req.body;
-        if (!email || !password || !session_id ) throw new Error("Missing required fields");
-        /*
+        const { email, password, session_id, order_id } = req.body;
+        if (!email || !password || !session_id || !order_id) throw new Error("Missing required fields");
+        
         const order = await Order.findOne({
             where: {
                 client_reference_id: session_id,
@@ -174,7 +162,7 @@ async function handle_signup(req, res) {
 
         if (!order) throw new Error("Couldn't find an order for this session. If you just purchased please wait a minute and try again, or contact hello@themaximalist.com");
         if (Number(order_id) != order.id) throw new Error("Invalid order id");
-        */
+        
         console.log('handle signup');
         const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -183,7 +171,7 @@ async function handle_signup(req, res) {
             password: hashedPassword,
         });
         if (!user) throw new Error("Error creating user");
-        /*
+        
         const updatedOrder = await Order.update({
             UserId: user.id,
         }, {
@@ -194,7 +182,6 @@ async function handle_signup(req, res) {
         if (!updatedOrder) throw new Error("Error updating order");
         
         // Set the user ID as a signed cookie
-        */
         res.cookie("userId", user.id, { signed: true, httpOnly: true });
 
         return res.redirect("/account");

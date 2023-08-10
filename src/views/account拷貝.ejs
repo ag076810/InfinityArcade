@@ -1,6 +1,8 @@
 <%- include("header.ejs") %>
 
-<div class="w-full text-center flex items-center justify-between lg:justify-center gap-4 px-2 lg:px-0">
+<div
+    class="w-full text-center flex items-center justify-between lg:justify-center gap-4 px-2 lg:px-0"
+>
     <a href="/" class="flex items-center gap-2">
         <img
             src="/images/logo.png"
@@ -11,7 +13,7 @@
             href="/"
             class="bg-gradient-to-br from-white to-gray-400 text-transparent bg-clip-text text-center py-4 text-xs lg:text-sm opacity-60 tracking-wider inline-block"
         >
-            AIStory
+            Infinity Arcade
         </div>
     </a>
     <div class="flex justify-center md:absolute md:right-4">
@@ -19,7 +21,7 @@
             href="/logout"
             class="text-purple-500 hover:text-purple-400 text-xs lg:text-sm"
         >
-            登出
+            Logout
         </a>
     </div>
 </div>
@@ -27,22 +29,44 @@
 <div class="container max-w-4xl mx-auto">
     <div class="text-white max-w-4xl flex flex-col gap-16 py-10">
         <div class="prose flex flex-col gap-4">
-            <h1 class="text-4xl font-bold text-purple-500">帳戶</h1>
+            <h1 class="text-4xl font-bold text-purple-500">Account</h1>
             <p>
-                <span class="text-purple-200">感謝您加入 <%= user.email %>！</span>
+                <span class="text-purple-200"
+                    >Thanks for purchasing <%= user.email %>!</span
+                >
             </p>
 
             <p>
                 <img src="/images/checkmark.png" class="h-4 inline-block" />
-                您可以使用最佳模型(GPT4)並創造私人遊戲。您將在下面看到您創造的遊戲和紀錄。玩得開心！
+                We upgraded you to the best model and set your account to
+                private. You'll see your games and sessions below. Have fun!
             </p>
         </div>
 
         <div class="w-full flex flex-col gap-4">
-            <h2 class="text-xl font-bold text-purple-500">遊戲</h2>
+            <div>
+                <h2 class="text-xl font-bold text-purple-500">
+                    GAME GENERATOR
+                </h2>
+                <textarea
+                    class="w-full h-[150px] p-4 bg-black text-white focus:ring-0 focus:border-0 focus:outline-none"
+                    id="game-prompt"
+                    placeholder="A group of survivors find themselves stranded on a mysterious and seemingly uninhabited island after their commercial airplane crashes in the South Pacific. As they struggle to survive and find a way to escape, they discover that the island is not as deserted as it initially appears."
+                ></textarea>
+            </div>
+            <button
+                class="bg-purple-500 text-white px-4 py-2 rounded w-full"
+                id="generate-game"
+            >
+                Generate Game
+            </button>
+        </div>
+
+        <div class="w-full flex flex-col gap-4">
+            <h2 class="text-xl font-bold text-purple-500">GAMES</h2>
             <% if (games.length == 0) { %>
             <div>
-                您尚未創造任何遊戲。請嘗試上方的遊戲創造器。
+                You don't have any games yet. Try the game generator above.
             </div>
             <% } %>
             <!-- -->
@@ -61,10 +85,11 @@
         </div>
 
         <div class="w-full flex flex-col gap-4">
-            <h2 class="text-xl font-bold my-4 text-purple-500">紀錄</h2>
+            <h2 class="text-xl font-bold my-4 text-purple-500">SESSIONS</h2>
             <% if (chats.length == 0) { %>
             <p>
-                您尚未擁有任何紀錄。請嘗試創造新的遊戲，您將看到它出現在此處。
+                You don't have any sessions yet. Try starting a new game and
+                you'll see it show up here.
             </p>
             <% } %>
             <!-- -->
@@ -90,7 +115,7 @@
                     <td
                         class="whitespace-nowrap px-4 pb-6 pt-0 text-xs text-right align-middle"
                     >
-                        <div><%= chat.dataValues.childCount %> 回合</div>
+                        <div><%= chat.dataValues.childCount %> turns</div>
                         <div><%= chat.dataValues.relativeTime %></div>
                     </td>
                 </tr>
@@ -101,7 +126,7 @@
         </div>
 
         <div class="w-full flex flex-col gap-4">
-            <h2 class="text-xl font-bold my-4 text-purple-500">設定</h2>
+            <h2 class="text-xl font-bold my-4 text-purple-500">SETTINGS</h2>
             <div class="flex flex-col gap-4">
                 <div>
                     <input type="radio" class="model-select accent-purple-500
@@ -112,12 +137,12 @@
                         for="radio1"
                         class="peer-checked/radio1:text-purple-500 cursor-pointer"
                     >
-                        使用gpt-4（最佳引擎，較慢）
+                        gpt-4 (best engine, slower)
                     </label>
                 </div>
 
                 <div>
-                    <input type="radio" class="model-select
+                    <input <input type="radio" class="model-select
                     accent-purple-500 cursor-pointer peer/radio2" id="radio2"
                     name="model" value="gpt-3.5-turbo" <% if (user.model ==
                     "gpt-3.5-turbo") { %>checked<% } %> />
@@ -125,7 +150,7 @@
                         for="radio2"
                         class="peer-checked/radio2:text-purple-500 cursor-pointer"
                     >
-                        使用gpt-3.5-turbo（速度較快，引擎較差）
+                        gpt-3.5-turbo (fast, worse engine)
                     </label>
                 </div>
                 <br />
@@ -138,34 +163,15 @@
                         for="checkbox1"
                         class="peer-checked/radio1:text-purple-500 cursor-pointer"
                     >
-                        私人遊戲
+                        Private
                     </label>
                 </div>
             </div>
         </div>
-        
-        <div class="w-full flex flex-col gap-4">
-            <div>
-                <h2 class="text-xl font-bold text-purple-500">
-                    遊戲創造器
-                </h2>
-                <textarea
-                    class="w-full h-[150px] p-4 bg-black text-white focus:ring-0 focus:border-0 focus:outline-none"
-                    id="game-prompt"
-                    placeholder="一群倖存者在商業飛機墜毀於南太平洋後，發現自己被困在一個神秘且看似無人居住的島嶼上。當他們努力求生並尋找逃脫之道時，他們發現這個島嶼並非一開始所看到的那麼荒涼。(範例)"
-                ></textarea>
-            </div>
-            <button
-                class="bg-purple-500 text-white px-4 py-2 rounded w-full"
-                id="generate-game"
-            >
-                創造遊戲
-            </button>
-        </div>
 
         <p>
-            請將錯誤和功能請求傳送至
-            <a href="aistory@aistory.com">aistory@aistory.com</a>
+            Send bugs &amp; feature requests to
+            <a href="mailto:hello@themaximalist.com">hello@themaximalist.com</a>
         </p>
     </div>
 </div>
@@ -186,10 +192,10 @@
                     });
 
                     if (response !== true) {
-                        throw new Error("更新模型時發生錯誤");
+                        throw new Error("Error updating model");
                     }
                 } catch (e) {
-                    alert("更新模型時發生錯誤");
+                    alert("Error updating model");
                 }
             };
         }
@@ -206,10 +212,10 @@
                 const response = await window.ia.api.updateAccount({ private });
 
                 if (response !== true) {
-                    throw new Error("更新隱私設定時發生錯誤");
+                    throw new Error("Error updating privacy");
                 }
             } catch (e) {
-                alert("更新隱私設定時發生錯誤");
+                alert("Error updating privacy");
             }
         };
 
