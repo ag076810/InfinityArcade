@@ -1,3 +1,13 @@
+// 設定環境變數的值
+process.env.OPENAI_API_KEY = "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"; 
+process.env.STABILITY_API_KEY = "sk-yBYvKv1p1NYlq6VGffIRVNIsPlUOiCTJiWpSUkjijzuieslG";
+process.env.REPLICATE_API_KEY = "r8_KGL3ti6L0XV7I6LYSTj2KeAjWmahhM82y13O9";
+
+// 在程式碼中訪問環境變數的值
+const openaiApiKey = process.env.OPENAI_API_KEY;
+const stabilityApiKey = process.env.STABILITY_API_KEY;
+const replicateApiKey = process.env.REPLICATE_API_KEY;
+
 const log = require("debug")("ia:services:GenerateGameArt");
 const AI = require("@themaximalist/ai.js");
 const prompt = require("@themaximalist/prompt.js");
